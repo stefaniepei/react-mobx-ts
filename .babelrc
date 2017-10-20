@@ -1,0 +1,41 @@
+{
+  "env": {
+    "development": {
+      "presets": [
+        [ "es2015", { "modules": false } ],
+        "stage-0",
+        "react"
+      ],
+      "plugins": [
+        "transform-decorators-legacy",
+        "transform-async-to-generator",
+        "transform-class-properties",
+        "react-hot-loader/babel"
+      ]
+    },
+    "production": {
+      "presets": [
+        [ "es2015", { "modules": false } ],
+        "stage-0",
+        "react"
+      ],
+      "plugins": [
+        "transform-decorators-legacy",
+        "transform-async-to-generator",
+        "transform-class-properties"
+      ]
+    },
+    "test": {
+      "presets": [
+        [ "es2015", { "modules": "commonjs" } ],
+        "stage-0",
+        "react"
+      ],
+      "plugins": [
+        "transform-decorators-legacy",
+        "transform-async-to-generator",
+        "transform-class-properties"
+      ]
+    }
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "extends": "airbnb",
+  "parser": "babel-eslint",
+  "env": {
+    "browser": true,
+    "mocha": true,
+    "node": true,
+    "es6": true
+  },
+  "rules": {
+    "max-len": [
+      "error",
+      80
+    ],
+    "comma-dangle": "off",
+    "array-bracket-spacing": [
+      "error",
+      "always"
+    ],
+    "space-before-function-paren": [
+      "error",
+      "always"
+    ],
+    "padded-blocks": [
+      "error",
+      {
+        "classes": "always",
+        "switches": "always",
+        "blocks": "never"
+      }
+    ],
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": [
+          "**/*.spec.js*",
+          "test/*",
+          "webpack.config.js",
+          "postcss.config.js"
+        ]
+      }
+    ],
+    "import/prefer-default-export": "off",
+    "react/forbid-prop-types": [
+      "error",
+      {
+        "forbid": [
+          "any",
+          "array"
+        ]
+      }
+    ],
+    "react/prefer-stateless-function": "off",
+    "react/require-default-props": "off",
+    "prefer-arrow-callback": "off",
+    "func-names": "off",
+    "function-paren-newline": "off",
+    "jsx-a11y/anchor-is-valid": [
+      "error",
+      {
+        "components": [
+          "a"
+        ]
+      }
+    ],
+    "react/jsx-curly-brace-presence": "off"
+  },
+  "parserOptions": {
+    "ecmaVersion": 7,
+    "ecmaFeatures": {
+      "experimentalDecorators": true
+    }
+  }
+}

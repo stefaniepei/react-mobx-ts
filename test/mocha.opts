@@ -1,0 +1,5 @@
+--ui qunit
+--require babel-register
+--require test/test.setup.js
+--watch-extensions js,jsx,scss
+src/**/*.spec.js*

@@ -1,0 +1,17 @@
+{
+  "require": [],
+  "extension": [
+    ".js",
+    ".jsx"
+  ],
+  "reporter": [
+    "lcov",
+    "text"
+  ],
+  "sourceMap": true,
+  "instrument": true,
+  "exclude": [
+    "src/**/*.spec.*",
+    "test/*"
+  ]
+}
