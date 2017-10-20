@@ -1,9 +1,7 @@
+# react-mbox-ts
+react^16.0.0+mobx^3.3.1+react-router^4.2.2+typescript^2.5.3+webpack^3.6.0
+
 # Webpack ReactJS Starter Kit
-
-> A TDD-focused ReactJS, MobX, React Router starter kit with component styleguide
-
-This is (what I consider) an optimial starting point for ReactJS & MobX projects, using the latest versions of Webpack, Babel, ReactJS, MobX and React Router.
-
 
 ## Key Features
 
@@ -11,9 +9,9 @@ This is (what I consider) an optimial starting point for ReactJS & MobX projects
 - MobX
 - React Router v4
 - Webpack v3
-- Babel v6
+- TS
 - Mocha unit tests suite for: components, utils and stores
-- ESLint (Airbnb coding style, plus some tweaks to make it less pedantic)
+- TSLint (Airbnb coding style, plus some tweaks to make it less pedantic)
 - React Styleguidist for a "living" component styleguide
 
 
@@ -38,39 +36,7 @@ These are the key commands you'll need:
 
 ## Best Practices
 
-Since there are many practices to be learned about and many of them pretty specific
-to various areas of app development, relevant READMEs are present throughout this
-starter kit.
-
-Here's the guides for each section of the starter kit:
-
-- [Components](src/components/README.md)
-- [Containers](src/containers/README.md)
-- [Stores](src/stores/README.md)
-
-These will be added to over time, and can be freely deleted once you're comfortable
-with the practices if you don't like them hanging around in your project. If you
-notice any corrections or improvements that can be made to these, feel free to open
-a pull request!
-
-
 ## Component Styleguide
-
-In a web app project?? _Yes!_
-
-Having a local development server for your app is one thing, but having a dedicated
-one for your components offers a way of working on components entirely separately
-from your app to help you in creating truly isolated, reusable components.
-
-I won't go into too much detail here, because this is being achieved using the
-amazing [React Styleguidist](https://react-styleguidist.js.org/) that you should
-definitely check out the docs for to learn more about. It's very easy to add to an
-existing React project, too.
-
-This starter kit already has it set up, just run `npm run sg` to run the local
-development component styleguide server at `localhost:6060`, then start adding or
-changing your component markdown files. It's easiest to locate them right next to
-the component itself:
 
 ```
 Header/
@@ -119,37 +85,6 @@ the `--reporter` flag.
 - [ ] Add bundle splitting strategies (vendor & consider dynamic imports)
 - [ ] Add component generator CLI
 
-
 ## Suggestions?
 
-Suggestions are **absolutely welcome!**
-
-Whilst I consider myself pretty well-aquainted currently with ReactJS at scale,
-I'm forever on the lookout for ways to improve on the practices I follow when I
-architect a React-based web app. And ultimately this isn't just for me, this is
-for anyone out there starting on a React project in need of the basic skeleton and
-structure already in place for them.
-
-If you think there's any improvements to be made here or any missing modules you feel
-are downright _essencial_ for building effective ReactJS apps, please don't hesitate
-to raise an issue or a pull request.
-
-
 ## About
-
-ReactJS is easy to start with (assuming you have a starting boilerplate or if you're
-using `create-react-app` CLI tool), but difficult to master, and will require a _lot_
-of iterative decision-making as you build your app.
-
-After working with some small and some very large-scale ReactJS web apps over the past
-couple of years, this is the starter kit that _I really wanted_ when I first needed to
-build something big using ReactJS.
-
-This little boilerplate project was created to provide an _opinionated_, _structured_
-starting point for ReactJS apps of all sizes, with the hope that it will somewhat ease
-the burdens placed upon you — the engineer — of building scaleable, unit-tested and
-performant web apps.
-
-**Developed by [Aaron Leo Cooper](http://webdevdiaries.com) @
-[2359Media](https://2359media.com)**
-
