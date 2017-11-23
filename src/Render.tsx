@@ -1,6 +1,5 @@
 import * as React from 'react'
 import * as ReactDom from 'react-dom'
-
 import configs from '../configs'
 import Provider from './Provider'
 
@@ -13,7 +12,7 @@ const render = (Component) => {
 
 render(Provider)
 
-const __DEV__ = process.env.NODE_ENV === 'development'
+const __DEV__ = configs.env === 'development'
 
 if (__DEV__ && (module as any).hot) {
   (module as any).hot.accept('./Provider.tsx', () => {

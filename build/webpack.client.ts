@@ -4,7 +4,6 @@ import * as HtmlWebpackPlugin from 'html-webpack-plugin'
 import * as ForkTsCheckerNotifierWebpackPlugin from 'fork-ts-checker-notifier-webpack-plugin'
 import * as ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin'
 import * as ExtractTextPlugin from 'extract-text-webpack-plugin'
-import * as nodeExternals from 'webpack-node-externals'
 import * as autoprefixer from 'autoprefixer'
 import { CheckerPlugin } from 'awesome-typescript-loader'
 
@@ -13,13 +12,12 @@ import configs from '../configs'
 const inRoot = path.resolve.bind(path, configs.pathBase)
 const inRootSrc = (file) => inRoot(configs.pathBase, file)
 
-const __DEV__ = process.env.NODE_ENV === 'development'
-const __PROD__ = process.env.NODE_ENV === 'production'
+const __DEV__ = configs.env === 'development'
+const __PROD__ = configs.env === 'production'
 
 const config = {
   name: 'client',
   target: 'web',
-  // externals: [nodeExternals()],
   resolve: {
     modules: ['node_modules'],
     extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'],

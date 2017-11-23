@@ -1,5 +1,4 @@
 import * as React from 'react'
-import configs from '../../configs'
 import {
   BrowserRouter,
   Route,

@@ -13,7 +13,7 @@ import webpackConfig from './webpack.client'
 
 const debug = _debug('app:server')
 const app = new Koa()
-const __DEV__ = process.env.NODE_ENV === 'development'
+const __DEV__ = configs.env === 'development'
 
 app.use(convert(historyApiFallback({
   verbose: false,

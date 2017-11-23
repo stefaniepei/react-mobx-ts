@@ -5,6 +5,7 @@ import DevTools from 'mobx-react-devtools'
 // 公用部分css
 import 'antd/dist/antd.min.css'
 
+import Configs from '../common/Configs'
 // home组件里面的一些路由
 import IndexRouters from '../containers/Index/router'
 
@@ -17,7 +18,7 @@ class App extends React.Component<any, any> {
   }
 
   render() {
-    const devToolsNode = process.env.NODE_ENV === 'development' ? <DevTools /> : null
+    const devToolsNode = Configs.DEFAULT.ENV === 'development' ? <DevTools /> : null
     const routes = [...IndexRouters]
     return (
       <Routers routes={routes} history={this.props.history}>
