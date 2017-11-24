@@ -1,19 +1,17 @@
-import HomeIndex from './index'
-import Login from './Components/Login/index'
+import * as React from 'react'
+import * as Loadable from 'react-loadable'
 
-// const loading = ({ isLoading, error }) => {
-//   return isLoading && !error ? <div>loading...</div> : error ? <div>error</div> : null
-// }
+const loading = ({ isLoading, error }) => {
+  return isLoading && !error ? <div>loading...</div> : error ? <div>error</div> : null
+}
 
-// const AsyncUserLogin = Loadable({
-//   loader: () => import('./Components/Login/index.tsx'),
-//   loading,
-// })
 const HomeRouters = [
   {
     path: '/',
-    component: HomeIndex,
-    hasHead: true,
+    component: Loadable({
+      loader: () => import('./index'),
+      loading,
+    }),
     exact: true,
     navOptions: {
       label: 'Home Page',
@@ -21,7 +19,10 @@ const HomeRouters = [
   },
   {
     path: '/login',
-    component: Login,
+    component: Loadable({
+      loader: () => import('./Components/Login/index'),
+      loading,
+    }),
     exact: true,
     navOptions: {
       label: 'Login Page',
