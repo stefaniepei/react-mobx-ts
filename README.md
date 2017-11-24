@@ -6,7 +6,7 @@ React V16 + ReactRouter V4 + Mobx + TypeScript + HMR
 - [x] React V16 + ReactRouter V4 + Mobx + TypeScript + HMR + Webpack
 - [x] sass模块化
 - [x] 支持热更新
-- [x] 支持后端渲染
+- [x] 支持动态加载组件
 - [x] 支持tslint语法检查,提交检查
 
 ssr版本：https://github.com/stefaniepei/react-mobx-ts-ssr
