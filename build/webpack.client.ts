@@ -28,9 +28,10 @@ const config = {
       'babel-polyfill',
       inRootSrc('src/Render.tsx'),
     ],
+    vendor: configs.compilerVendor,
   },
   output: {
-    filename: 'client.bundle.js',
+    filename: '[name].bundle.js',
     path: inRootSrc('dist'),
     publicPath: configs.compilerPublicPath,
   },
@@ -130,6 +131,10 @@ config.plugins.push(
   }),
   new ForkTsCheckerWebpackPlugin({
     checkSyntacticErrors: true,
+  }),
+  new webpack.optimize.CommonsChunkPlugin({
+    names: ['main', 'vendor'],
+    minChunks: Infinity,
   }),
   new HtmlWebpackPlugin({
     template: inRootSrc('src/index.html'),

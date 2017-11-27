@@ -10,6 +10,12 @@ const Utils = {
     return size / 1024 / 1024 < diffSize  //tslint:disable-line
   },
 
+  extract(filterFn, mapFn) {
+    return function process(col) {
+      return col.filter(filterFn).map(mapFn)
+    }
+  },
+
 }
 
 export default Utils
