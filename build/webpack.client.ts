@@ -73,12 +73,20 @@ config.module.rules.push({
   exclude: /node_modules/,
 })
 
+
+const extractSass = new ExtractTextPlugin({
+  filename: '[name].min.css',
+})
+
 config.module.rules.push({
   test: /\.css$/,
-  use: [
-    { loader: 'style-loader' },
-    { loader: 'css-loader' },
-    {
+  use: extractSass.extract({
+    use: [{
+      loader: 'css-loader',
+      options: {
+        sourceMap: __DEV__,
+      },
+    }, {
       loader: 'postcss-loader',
       options: {
         plugins: () => [autoprefixer(
@@ -88,17 +96,23 @@ config.module.rules.push({
               'Safari >= 6', 'ie > 8'],
           },
         )],
+        sourceMap: __DEV__,
       },
-    },
-  ],
+    }],
+    // 在开发环境使用 style-loader
+    fallback: 'style-loader',
+  }),
 })
 
 config.module.rules.push({
   test: /\.(scss|sass)$/,
-  use: [
-    { loader: 'style-loader' },
-    { loader: 'css-loader' },
-    {
+  use: extractSass.extract({
+    use: [{
+      loader: 'css-loader',
+      options: {
+        sourceMap: __DEV__,
+      },
+    }, {
       loader: 'postcss-loader',
       options: {
         plugins: () => [autoprefixer(
@@ -108,10 +122,17 @@ config.module.rules.push({
               'Safari >= 6', 'ie > 8'],
           },
         )],
+        sourceMap: __DEV__,
       },
-    },
-    { loader: 'sass-loader' },
-  ],
+    }, {
+      loader: 'sass-loader',
+      options: {
+        sourceMap: __DEV__,
+      },
+    }],
+    // 在开发环境使用 style-loader
+    fallback: 'style-loader',
+  }),
 })
 
 config.module.rules.push({
@@ -132,18 +153,20 @@ config.plugins.push(
   new ForkTsCheckerWebpackPlugin({
     checkSyntacticErrors: true,
   }),
-  new webpack.optimize.CommonsChunkPlugin({
-    names: ['main', 'vendor'],
-    minChunks: Infinity,
-  }),
   new HtmlWebpackPlugin({
     template: inRootSrc('src/index.html'),
     favicon: inRootSrc('favicon.ico'),
-    hash: false,
+    hash: true,
     inject: true,
     manify: {
-      collapseWhitespace: true,
+      removeComments: true,
+      collapseWhitespace: false,
     },
+    chunks: ['main', 'vendor', 'manifest'],
+    filename: 'index.html',
+  }),
+  new webpack.optimize.CommonsChunkPlugin({
+    names: ['vendor', 'manifest'],
   }),
   // new webpack.ProvidePlugin({
   //   $: 'jquery',
@@ -163,9 +186,7 @@ if (__DEV__) {
   )
 } else {
   config.plugins.push(
-    // new ExtractTextPlugin({
-    //   filename: 'styles.css',
-    // }),
+    extractSass,
     new webpack.LoaderOptionsPlugin({
       minimize: true,
     }),
