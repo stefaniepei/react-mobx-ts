@@ -9,6 +9,7 @@ export default {
   outDir: path.join(__dirname, '../dist'),
   publicDir: path.join(__dirname, '../src/public'),
   port: process.env.PORT || 5000,
+  version: '1.0.0',
   compilerVendor: [
     'react',
     'react-dom',

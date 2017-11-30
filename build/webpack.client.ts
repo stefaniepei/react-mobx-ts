@@ -73,7 +73,7 @@ config.module.rules.push({
   exclude: /node_modules/,
 })
 
-
+// 为打包成单独的css文件而生(webpack3)
 const extractSass = new ExtractTextPlugin({
   filename: '[name].min.css',
 })
@@ -136,13 +136,16 @@ config.module.rules.push({
 })
 
 config.module.rules.push({
-  test: /\.(png|jpg|gif|svg)$/,
-  use: ['file-loader?limit=8192&name=files/[md5:hash:base64:10].[ext]'],
+  test: /\.(mp4)$/,
+  use: ['url-loader?name=files/[path][name].[ext]'],
 })
-
+config.module.rules.push({
+  test: /\.(png|jpg|jpeg|gif|svg)$/,
+  use: ['url-loader?limit=8192&name=files/[md5:hash:base64:10].[ext]'],
+})
 config.module.rules.push({
   test: /\.(eot|ttf|otf|woff|woff2)$/,
-  use: ['file-loader?limit=10000&name=files/[md5:hash:base64:10].[ext]'],
+  use: ['url-loader?limit=10000&name=files/[md5:hash:base64:10].[ext]'],
 })
 
 config.plugins.push(
@@ -150,6 +153,7 @@ config.plugins.push(
   new ForkTsCheckerNotifierWebpackPlugin({
     excludeWarnings: true,
   }),
+  extractSass,
   new ForkTsCheckerWebpackPlugin({
     checkSyntacticErrors: true,
   }),
@@ -168,6 +172,7 @@ config.plugins.push(
   new webpack.optimize.CommonsChunkPlugin({
     names: ['vendor', 'manifest'],
   }),
+  new webpack.BannerPlugin(`Version: ${configs.version}; build: ${new Date().toString()}`),
   // new webpack.ProvidePlugin({
   //   $: 'jquery',
   //   jQuery: 'jquery',
@@ -186,7 +191,6 @@ if (__DEV__) {
   )
 } else {
   config.plugins.push(
-    extractSass,
     new webpack.LoaderOptionsPlugin({
       minimize: true,
     }),
