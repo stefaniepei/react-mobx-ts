@@ -4,6 +4,8 @@ import * as HtmlWebpackPlugin from 'html-webpack-plugin'
 import * as ForkTsCheckerNotifierWebpackPlugin from 'fork-ts-checker-notifier-webpack-plugin'
 import * as ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin'
 import * as ExtractTextPlugin from 'extract-text-webpack-plugin'
+import * as OptimizeCssAssetsPlugin from 'optimize-css-assets-webpack-plugin'
+
 import * as autoprefixer from 'autoprefixer'
 import { CheckerPlugin } from 'awesome-typescript-loader'
 
@@ -193,6 +195,13 @@ if (__DEV__) {
   config.plugins.push(
     new webpack.LoaderOptionsPlugin({
       minimize: true,
+    }),
+    // css去重加优化
+    new OptimizeCssAssetsPlugin({
+      assetNameRegExp: /\.css$/g,
+      cssProcessor: require('cssnano'),
+      cssProcessorOptions: { discardComments: { removeAll: true } },
+      canPrint: true,
     }),
     new webpack.optimize.OccurrenceOrderPlugin(true),
     new webpack.optimize.UglifyJsPlugin({
