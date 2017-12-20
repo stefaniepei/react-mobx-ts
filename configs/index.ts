@@ -11,6 +11,7 @@ export default {
   port: process.env.PORT || 5000,
   version: '1.0.0',
   compilerVendor: [
+    'core-js',
     'react',
     'react-dom',
     'react-router-dom',
