@@ -26,11 +26,8 @@
     "allowSyntheticDefaultImports": true,
     "baseUrl": "./src",
     "paths": {
-      "g-src/*": [
-        "./src/*"
-      ],
-      "g-src": [
-        "./src"
+      "ramda": [
+        "location-of-types/npm-ramda-package/index"
       ]
     }
   },

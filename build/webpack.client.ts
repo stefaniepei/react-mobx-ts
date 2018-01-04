@@ -4,9 +4,8 @@ import * as HtmlWebpackPlugin from 'html-webpack-plugin'
 import * as ForkTsCheckerNotifierWebpackPlugin from 'fork-ts-checker-notifier-webpack-plugin'
 import * as ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin'
 import * as ExtractTextPlugin from 'extract-text-webpack-plugin'
-import * as OptimizeCssAssetsPlugin from 'optimize-css-assets-webpack-plugin'
-
 import * as autoprefixer from 'autoprefixer'
+import * as OptimizeCssAssetsPlugin from 'optimize-css-assets-webpack-plugin'
 import { CheckerPlugin } from 'awesome-typescript-loader'
 
 import configs from '../configs'

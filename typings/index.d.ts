@@ -5,6 +5,7 @@
 //   ensure: (paths: string[], callback: (require: <T>(path: string) => T) => void, name: any) => void;
 // }
 // declare var require: NodeRequire
+declare var CopyToClipboard: any
 declare var module: NodeModule
 interface Window {
   __INITIAL_STATE__: any

@@ -9,7 +9,7 @@ const HomeRouters = [
   {
     path: '/',
     component: Loadable({
-      loader: () => import('./index'),
+      loader: () => import('./Home'),
       loading,
     }),
     exact: true,
@@ -20,7 +20,7 @@ const HomeRouters = [
   {
     path: '/login',
     component: Loadable({
-      loader: () => import('./Components/Login/index'),
+      loader: () => import('./Login'),
       loading,
     }),
     exact: true,
