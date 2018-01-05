@@ -7,9 +7,9 @@ export default {
   pathBase: path.join(__dirname, '..'),
   pathSrc: path.join(__dirname, '../src'),
   outDir: path.join(__dirname, '../dist'),
-  publicDir: path.join(__dirname, '../src/assets'),
+  assetsDir: path.join(__dirname, '../src/assets/static'),
   port: process.env.PORT || 5000,
-  version: '1.0.0',
+  version: '1.0.3',
   compilerVendor: [
     'core-js',
     'react',

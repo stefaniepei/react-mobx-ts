@@ -14,7 +14,6 @@ export default class Base {
   @observable languageSetter = false
   @observable erwei = ''
 
-
   @observable userInfo = localStorage.getItem('userInfo') || {}  //用户信息详情
   @observable loading = false // 正在加载中...防止重复加载
 

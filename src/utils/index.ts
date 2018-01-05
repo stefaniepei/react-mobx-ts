@@ -46,7 +46,7 @@ const Utils = {
   arryToTree(data, id, pId, appId) {
     const arr: any = []
     data.map((e: any, i: any) => {
-      e[pId] == appId && arr.push(e)
+      e[pId] === appId && arr.push(e)
     })
     const res = this.to3wei(arr, data, id, pId)
     return res
@@ -63,7 +63,7 @@ const Utils = {
     a.map((e: any, i: any) => {
       a[i].children = []
       old.map((se: any, si: any) => {
-        if (se[pId] == a[i][id]) {
+        if (se[pId] === a[i][id]) {
           a[i].children = [...a[i].children, se]
           this.to3wei(a[i].children, old, id, pId)
         }

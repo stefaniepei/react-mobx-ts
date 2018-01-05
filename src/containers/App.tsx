@@ -3,7 +3,8 @@ import { observer } from 'mobx-react'
 import DevTools from 'mobx-react-devtools'
 
 // 公用部分css
-import 'antd/dist/antd.min.css'
+import 'normalize.css'
+// import 'antd/dist/antd.min.css'
 
 import Configs from '../common/Configs'
 // home组件里面的一些路由
