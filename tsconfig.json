@@ -9,8 +9,7 @@
       "dom"
     ],
     "types": [
-      "node",
-      "express"
+      "node"
     ],
     "typeRoots": [
       "node_modules/@types"

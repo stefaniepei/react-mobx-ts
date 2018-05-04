@@ -58,7 +58,7 @@ class Home extends React.Component<props, any> {
         <Button onClick={this.addTest} type='danger'>Test</Button>
         <div style={{ paddingTop: '20px', background: '#fff' }}>
           <ul>
-            <li><Link to='/login'>login</Link></li>
+            <li><Link to='/login'>login {count}</Link></li>
 
           </ul>
         </div>
