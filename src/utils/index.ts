@@ -1,5 +1,6 @@
 import * as zlib from 'zlib'
 import { clearTimeout, setTimeout } from 'timers'
+import Storage from './storage'
 
 const Utils = {
 
@@ -109,16 +110,16 @@ const Utils = {
 
   // 登出的时候把storage清除
   logOutClearStorage() {
-    localStorage.removeItem('userToken')
-    localStorage.removeItem('userLoginPermission')
-    localStorage.removeItem('ssoToken')
-    localStorage.removeItem('userId')
-    localStorage.removeItem('userInfo')
-    localStorage.removeItem('userGroupList')
-    localStorage.removeItem('gameAuthList')
-    localStorage.removeItem('gameAppId')
-    localStorage.removeItem('gameInfo')
-    localStorage.removeItem('gameName')
+    Storage.removeItem('userToken')
+    Storage.removeItem('userLoginPermission')
+    Storage.removeItem('ssoToken')
+    Storage.removeItem('userId')
+    Storage.removeItem('userInfo')
+    Storage.removeItem('userGroupList')
+    Storage.removeItem('gameAuthList')
+    Storage.removeItem('gameAppId')
+    Storage.removeItem('gameInfo')
+    Storage.removeItem('gameName')
   },
 
   // 去除两边的空格

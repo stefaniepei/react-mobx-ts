@@ -5,6 +5,7 @@ import { message } from 'antd'
 import { UNAUTHORIZED, TIMEOUT } from '../utils/constant'
 import Configs from '../common/Configs'
 import ErrorCode from '../utils/errorCode'
+import Storage from '../utils/storage'
 
 const debug = _debug('promise:Axios')
 const history = createBrowserHistory()
@@ -44,11 +45,11 @@ axios.interceptors.response.use((response) => {
   const code = response.data.code
   if (code === UNAUTHORIZED) {
     message.error(response.data.message || '请登录')
-    localStorage.removeItem('userToken')
-    localStorage.removeItem('userLoginPermission')
-    localStorage.removeItem('ssoToken')
-    localStorage.removeItem('userId')
-    localStorage.removeItem('userInfo')
+    Storage.removeItem('userToken')
+    Storage.removeItem('userLoginPermission')
+    Storage.removeItem('ssoToken')
+    Storage.removeItem('userId')
+    Storage.removeItem('userInfo')
     history.replace('/login')
     location.reload()
   } else if (code === 0 || code === 1) {
@@ -66,11 +67,11 @@ axios.interceptors.response.use((response) => {
   let code = error.response.status
   if (code === UNAUTHORIZED) {
     message.error(error.response.statusText || '请登录')
-    localStorage.removeItem('userToken')
-    localStorage.removeItem('userLoginPermission')
-    localStorage.removeItem('ssoToken')
-    localStorage.removeItem('userId')
-    localStorage.removeItem('userInfo')
+    Storage.removeItem('userToken')
+    Storage.removeItem('userLoginPermission')
+    Storage.removeItem('ssoToken')
+    Storage.removeItem('userId')
+    Storage.removeItem('userInfo')
     history.replace('/login')
     location.reload()
   } else {

@@ -1,41 +1,29 @@
 import { observable, action, runInAction } from 'mobx'
 import i18n from '../../common/i18n'
+import BaseStore from '../BaseStore'
 import { userLogin, userLogoutToken } from './api'
 import _debug from 'debug'
 
 const debug = _debug('app:AdminStore')
 
-export default class Base {
-  @observable count = +localStorage.getItem('count') || 0
-  @observable locale = localStorage.getItem('locale') || 'zh_CN'
-  @observable activePath = localStorage.getItem('activePath') || ''
+export default class Base extends BaseStore {
+  @observable count = +this.Storage.getItem('count') || 0
+  @observable locale = this.Storage.getItem('locale') || 'zh_CN'
+  @observable activePath = this.Storage.getItem('activePath') || ''
   @observable i18n = i18n.instance.get(this.locale)
   @observable isScroll0 = true
   @observable languageSetter = false
   @observable erwei = ''
 
-  @observable userInfo = localStorage.getItem('userInfo') || {}  //用户信息详情
+  @observable userInfo = this.Storage.getItem('userInfo') || {}  //用户信息详情
   @observable loading = false // 正在加载中...防止重复加载
-
-  // 赋值
-  @action('AdminStore :: setStore')
-  setStore(key: any, val: any) {
-    this[key] = val
-  }
-
-  // 赋值
-  @action('AdminStore :: setStore')
-  setStoreStorage(key: any, val: any) {
-    this[key] = val
-    localStorage.setItem(key, val)
-  }
 
   @action('Base :: addCount1')
   add = () => {
     try {
       runInAction('Base :: add new count', () => {
         this.count++
-        localStorage.setItem('count', this.count as any)
+        this.Storage.setItem('count', this.count as any)
       })
     } catch (e) {
       runInAction('Base :: count rejected', () => {
@@ -70,7 +58,7 @@ export default class Base {
   @action('Base :: setLanguage')
   setLanguage = (val: string) => {
     this.locale = val
-    localStorage.setItem('locale', val)
+    this.Storage.setItem('locale', val)
     this.setI18nData()
   }
 
