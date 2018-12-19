@@ -1,5 +1,8 @@
 # 更新日志
 
+## 1.0.7
+package包更新 2018/12/19
+
 ## 1.0.6 
 braft-editor html->raw
 package包更新 2018/05/04

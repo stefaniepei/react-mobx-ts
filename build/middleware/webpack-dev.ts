@@ -10,10 +10,10 @@ export default (compiler: any, publicPath: any) => {
 
   const middleware = WebpackDevMiddleware(compiler, {
     publicPath,
-    contentBase: path.join(__dirname, '..', '..', 'src'),
-    hot: true,
-    quiet: false,
-    noInfo: false,
+    // contentBase: path.join(__dirname, '..', '..', 'src'),
+    // hot: true,
+    // quiet: false,
+    // noInfo: false,
     lazy: false,
     stats: false,
   })
